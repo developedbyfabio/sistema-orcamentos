@@ -1,0 +1,60 @@
+{
+  "name": "orcamentos-backend",
+  "version": "1.0.0",
+  "description": "Backend do Sistema de Orçamentos com Controle de Níveis",
+  "main": "dist/server.js",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "start:prod": "NODE_ENV=production node dist/server.js",
+    "start:background": "nohup node dist/server.js > server.log 2>&1 &",
+    "start:pm2": "pm2 start dist/server.js --name 'orcamentos-backend'",
+    "stop:pm2": "pm2 stop orcamentos-backend",
+    "restart:pm2": "pm2 restart orcamentos-backend",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:reset": "prisma migrate reset --force",
+    "db:seed": "ts-node src/seed.ts",
+    "seed": "yarn db:generate && yarn db:push && yarn db:seed"
+  },
+  "keywords": [
+    "orcamentos",
+    "nodejs",
+    "express",
+    "prisma",
+    "postgresql"
+  ],
+  "author": "Sistema de Orçamentos",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.7.1",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/multer": "^1.4.13",
+    "@types/node": "^20.19.0",
+    "prisma": "^5.7.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}

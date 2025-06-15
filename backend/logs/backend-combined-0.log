@@ -1,0 +1,23 @@
+2025-06-15T22:46:27: ✅ Conectado ao banco de dados PostgreSQL
+2025-06-15T22:46:27: 🚀 Servidor rodando na porta 5000
+2025-06-15T22:46:27: 📊 Ambiente: production
+2025-06-15T22:46:27: 🔗 API disponível em: http://localhost:5000/api
+2025-06-15T22:46:27: 💚 Health check: http://localhost:5000/api/health
+2025-06-15T22:46:27: 🌐 CORS configurado para todas as origens
+2025-06-15T22:46:30: 2025-06-15T22:46:30.986Z - GET /api/health
+2025-06-15T22:47:16: 2025-06-15T22:47:16.358Z - GET /api/health
+2025-06-15T22:47:28: 2025-06-15T22:47:28.094Z - GET /api/auth/me
+2025-06-15T22:47:30: 2025-06-15T22:47:30.829Z - POST /api/auth/login
+2025-06-15T22:47:30: 2025-06-15T22:47:30.909Z - GET /api/dashboard
+2025-06-15T22:47:52: 🛑 Recebido SIGINT, fechando servidor...
+2025-06-15T22:48:22: ✅ Conectado ao banco de dados PostgreSQL
+2025-06-15T22:48:22: 🚀 Servidor rodando na porta 5000
+2025-06-15T22:48:22: 📊 Ambiente: production
+2025-06-15T22:48:22: 🔗 API disponível em: http://localhost:5000/api
+2025-06-15T22:48:22: 💚 Health check: http://localhost:5000/api/health
+2025-06-15T22:48:22: 🌐 CORS configurado para todas as origens
+2025-06-15T22:48:29: 2025-06-15T22:48:29.083Z - POST /api/auth/login
+2025-06-15T22:48:29: 2025-06-15T22:48:29.260Z - GET /api/dashboard
+2025-06-15T22:48:31: 2025-06-15T22:48:31.918Z - GET /api/users
+2025-06-15T22:48:31: 2025-06-15T22:48:31.921Z - GET /api/niveis
+2025-06-15T22:48:31: 2025-06-15T22:48:31.929Z - GET /api/filiais
