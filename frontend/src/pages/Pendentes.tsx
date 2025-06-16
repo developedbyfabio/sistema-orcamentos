@@ -39,7 +39,7 @@ const Pendentes: React.FC = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://192.168.1.120:5000/api/orcamentos/pendentes', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/pendentes`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ const Pendentes: React.FC = () => {
   const aprovarOrcamento = async (id: number) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/orcamentos/${id}/aprovar`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${id}/aprovar`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

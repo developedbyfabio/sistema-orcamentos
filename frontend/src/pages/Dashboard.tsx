@@ -98,7 +98,7 @@ const Dashboard: React.FC = () => {
       setLoading(true);
       const token = localStorage.getItem('token');
       const query = new URLSearchParams(params as any).toString();
-      const response = await fetch(`http://192.168.1.120:5000/api/dashboard${query ? '?' + query : ''}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/dashboard${query ? '?' + query : ''}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

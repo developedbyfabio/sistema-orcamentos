@@ -108,7 +108,7 @@ const OrcamentoDetalhes: React.FC = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/orcamentos/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -201,7 +201,7 @@ const OrcamentoDetalhes: React.FC = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/orcamentos/${orcamento?.id}/aprovar`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${orcamento?.id}/aprovar`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -234,7 +234,7 @@ const OrcamentoDetalhes: React.FC = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/orcamentos/${orcamento?.id}/rejeitar`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${orcamento?.id}/rejeitar`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -271,7 +271,7 @@ const OrcamentoDetalhes: React.FC = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/orcamentos/${orcamento?.id}/comprado`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${orcamento?.id}/comprado`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -306,7 +306,7 @@ const OrcamentoDetalhes: React.FC = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/orcamentos/${orcamento?.id}/baixa`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${orcamento?.id}/baixa`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -614,14 +614,14 @@ const OrcamentoDetalhes: React.FC = () => {
                           <div key={index} className="relative">
                             {isImage ? (
                               <img
-                                src={`http://localhost:5000${fotoUrl}`}
+                                src={`${process.env.REACT_APP_API_URL}${fotoUrl}`}
                                 alt={`Foto ${index + 1}`}
                                 className="h-24 w-full object-cover rounded-lg border cursor-pointer hover:opacity-80"
-                                onClick={() => window.open(`http://localhost:5000${fotoUrl}`, '_blank')}
+                                onClick={() => window.open(`${process.env.REACT_APP_API_URL}${fotoUrl}`, '_blank')}
                               />
                             ) : (
                               <a
-                                href={`http://localhost:5000${fotoUrl}`}
+                                href={`${process.env.REACT_APP_API_URL}${fotoUrl}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block h-24 w-full bg-gray-100 rounded-lg border flex items-center justify-center text-gray-500 hover:bg-gray-200"
@@ -669,7 +669,7 @@ const OrcamentoDetalhes: React.FC = () => {
                         return (
                           <a
                             key={index}
-                            href={`http://localhost:5000${anexoUrl}`}
+                            href={`${process.env.REACT_APP_API_URL}${anexoUrl}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"

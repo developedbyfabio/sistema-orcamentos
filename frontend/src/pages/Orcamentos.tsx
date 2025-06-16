@@ -50,7 +50,7 @@ const Orcamentos: React.FC = () => {
   const fetchOrcamentos = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://192.168.1.120:5000/api/orcamentos', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -125,7 +125,7 @@ const Orcamentos: React.FC = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/orcamentos/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

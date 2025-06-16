@@ -39,7 +39,7 @@ const DarBaixa: React.FC = () => {
   const fetchOrcamentos = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/orcamentos/dar-baixa', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/dar-baixa`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ const DarBaixa: React.FC = () => {
   const handleDarBaixa = async (orcamentoId: number) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/orcamentos/${orcamentoId}/baixa`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${orcamentoId}/baixa`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

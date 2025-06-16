@@ -97,7 +97,7 @@ const EditarOrcamento: React.FC = () => {
   const fetchOrcamento = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/orcamentos/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -136,7 +136,7 @@ const EditarOrcamento: React.FC = () => {
   const fetchFiliais = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/filiais', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/filiais`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -302,7 +302,7 @@ const EditarOrcamento: React.FC = () => {
         observacoes: formData.observacoes
       };
       
-      const response = await fetch(`http://localhost:5000/api/orcamentos/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,

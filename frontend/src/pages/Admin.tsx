@@ -659,13 +659,13 @@ const Admin: React.FC = () => {
       
       // Buscar dados em paralelo
       const [usuariosRes, niveisRes, filiaisRes] = await Promise.all([
-        fetch(`http://192.168.1.120:5000/api/users`, {
+        fetch(`${process.env.REACT_APP_API_URL}/users`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
-        fetch(`http://192.168.1.120:5000/api/niveis`, {
+        fetch(`${process.env.REACT_APP_API_URL}/niveis`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
-        fetch(`http://192.168.1.120:5000/api/filiais`, {
+        fetch(`${process.env.REACT_APP_API_URL}/filiais`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
       ]);
@@ -715,9 +715,9 @@ const Admin: React.FC = () => {
       
       const endpoint = type === 'usuario' ? 'users' : type === 'nivel' ? 'niveis' : 'filiais';
       
-      console.log(`Fazendo requisição PATCH para: http://192.168.1.120:5000/api/${endpoint}/${id}`);
+      console.log(`Fazendo requisição PATCH para: ${process.env.REACT_APP_API_URL}/${endpoint}/${id}`);
       
-      const response = await fetch(`http://192.168.1.120:5000/api/${endpoint}/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/${endpoint}/${id}`, {
         method: 'PATCH',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -751,7 +751,7 @@ const Admin: React.FC = () => {
       const token = localStorage.getItem('token');
       const endpoint = type === 'usuario' ? 'users' : type === 'nivel' ? 'niveis' : 'filiais';
       
-      const response = await fetch(`http://192.168.1.120:5000/api/${endpoint}/${id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/${endpoint}/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -771,7 +771,7 @@ const Admin: React.FC = () => {
   const loadUserFluxo = async (userId: number) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/users/${userId}/fluxo`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/users/${userId}/fluxo`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -797,7 +797,7 @@ const Admin: React.FC = () => {
       const token = localStorage.getItem('token');
       const niveis = userFluxo.map(item => item.nivelId || item.nivel.id);
       
-      const response = await fetch(`http://192.168.1.120:5000/api/users/${selectedUser.id}/fluxo`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/users/${selectedUser.id}/fluxo`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -830,7 +830,7 @@ const Admin: React.FC = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/users/${selectedUser.id}/fluxo`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/users/${selectedUser.id}/fluxo`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -887,7 +887,7 @@ const Admin: React.FC = () => {
   const handleCreateUser = async (form: any) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/users`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -914,7 +914,7 @@ const Admin: React.FC = () => {
   const handleUpdateUser = async (form: any) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/users/${editingUser?.id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/users/${editingUser?.id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -955,7 +955,7 @@ const Admin: React.FC = () => {
   }) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/niveis`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/niveis`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -991,7 +991,7 @@ const Admin: React.FC = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/niveis/${editingNivel.id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/niveis/${editingNivel.id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -1028,7 +1028,7 @@ const Admin: React.FC = () => {
   }) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/filiais`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/filiais`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -1062,7 +1062,7 @@ const Admin: React.FC = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.120:5000/api/filiais/${editingFilial.id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/filiais/${editingFilial.id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -1419,7 +1419,7 @@ const Admin: React.FC = () => {
                   if (window.confirm('Tem certeza que deseja limpar TODOS os orçamentos do banco? Esta ação não pode ser desfeita!')) {
                     try {
                       const token = localStorage.getItem('token');
-                      const res = await fetch(`http://192.168.1.120:5000/api/orcamentos/limpar-todos`, {
+                      const res = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/limpar-todos`, {
                         method: 'DELETE',
                         headers: { 'Authorization': `Bearer ${token}` }
                       });

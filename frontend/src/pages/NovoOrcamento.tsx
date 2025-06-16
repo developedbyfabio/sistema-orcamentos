@@ -75,10 +75,9 @@ const NovoOrcamento: React.FC = () => {
   const fetchFiliais = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/filiais', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/filiais`, {
         headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
+          'Authorization': `Bearer ${token}`
         }
       });
       
@@ -233,7 +232,7 @@ const NovoOrcamento: React.FC = () => {
         formDataToSend.append(`anexos`, uploadedFile.file);
       });
       
-      const response = await fetch('http://localhost:5000/api/orcamentos', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

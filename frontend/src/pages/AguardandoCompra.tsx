@@ -39,7 +39,7 @@ const AguardandoCompra: React.FC = () => {
   const fetchOrcamentos = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/orcamentos/aguardando-compra', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/aguardando-compra`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ const AguardandoCompra: React.FC = () => {
   const handleMarcarComprado = async (orcamentoId: number) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:5000/api/orcamentos/${orcamentoId}/comprado`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/orcamentos/${orcamentoId}/comprado`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
